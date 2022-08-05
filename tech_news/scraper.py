@@ -4,9 +4,7 @@ from parsel import Selector
 from tech_news.database import create_news
 
 
-# Requisito 1
 def fetch(url):
-    """Seu código deve vir aqui"""
     time.sleep(1)
     try:
         response = requests.get(
@@ -24,23 +22,17 @@ def fetch(url):
         return None
 
 
-# Requisito 2
 def scrape_novidades(html_content):
-    """Seu código deve vir aqui"""
     selector = Selector(text=html_content)
     return selector.css('a.cs-overlay-link::attr(href)').getall()
 
 
-# Requisito 3
 def scrape_next_page_link(html_content):
-    """Seu código deve vir aqui"""
     selector = Selector(text=html_content)
     return selector.css('a.next.page-numbers::attr(href)').get()
 
 
-# Requisito 4
 def scrape_noticia(html_content):
-    """Seu código deve vir aqui"""
     selector = Selector(text=html_content)
 
     url = selector.css('link[rel="canonical"]::attr(href)').get()
@@ -75,9 +67,7 @@ def scrape_noticia(html_content):
     }
 
 
-# Requisito 5
 def get_tech_news(amount):
-    """Seu código deve vir aqui"""
     tech_news = []
     base_url = 'https://blog.betrybe.com'
 

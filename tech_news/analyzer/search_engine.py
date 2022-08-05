@@ -2,9 +2,7 @@ from tech_news.database import search_news
 from datetime import datetime
 
 
-# Requisito 6
 def search_by_title(title):
-    """Seu código deve vir aqui"""
     news_by_title = []
     news = search_news({'title': {'$regex': title, '$options': '-i'}})
 
@@ -14,9 +12,7 @@ def search_by_title(title):
     return news_by_title
 
 
-# Requisito 7
 def search_by_date(date):
-    """Seu código deve vir aqui"""
     try:
         date_format = datetime.strptime(date, '%Y-%m-%d')
 
@@ -32,9 +28,7 @@ def search_by_date(date):
         raise ValueError('Data inválida')
 
 
-# Requisito 8
 def search_by_tag(tag):
-    """Seu código deve vir aqui"""
     news_by_tag = []
     news = search_news({'tags': {'$regex': tag, '$options': '-i'}})
 
@@ -44,9 +38,7 @@ def search_by_tag(tag):
     return news_by_tag
 
 
-# Requisito 9
 def search_by_category(category):
-    """Seu código deve vir aqui"""
     news_by_category = []
     news = search_news({'category': {'$regex': category, '$options': '-i'}})
 
